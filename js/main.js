@@ -15,32 +15,35 @@
 //7. Which method removes an element at the end of an array?
 //8. Which method removes an element at the beginning of an array?
 //9. What speed did the saturn V rocket reach in MPH?
-answerArray = [5, 0, -3, 'Voyager 1', 'push', 'shift', 'unshift', 'pop', 47000, 'blue']
-
+var answerArray = [5, 0]
 var user = document.getElementsByClassName('input');
-
 var usersArray = [];
+var question = document.getElementsByClassName('question');
+
 
 function grade() {
-    //push input to usersArray
-    //color questions simple version
-    usersArray.push(user[0].value);
-    usersArray.push(user[1].value);
+    //for loop to store in array
+    for (i = 0; i <= 1; i++) {
+        console.log(user[i].value);
+        usersArray.push(user[i].value);
+    };
     console.log(usersArray);
 
-    for (i = 0; i < 3; i++) {
-        //add a counter Id to each question
-        var newId = 'question' + (i + 1);
-        var questionDiv = document.getElementsByClassName('question')[i];
-        questionDiv.setAttribute('id', newId);
-
-        //compare for coloring
-        //status: if and else are not running for second number in the array
+    //for loop to compare arrays
+    for (i = 0; i <= answerArray.length; i++) {
         if (usersArray[i] == answerArray[i] && usersArray[i] !== "") {
-            document.getElementById(newId).style.color = 'green';
+
+            question[i].style.color = "limegreen";
+
         } else {
-            document.getElementById(newId).style.color = 'red'
+
+            question[i].style.color = "red";
         }
-        return usersArray = [];
+    };
+
+    for (i = 0; i < usersArray.length; i++) {
+        usersArray.shift();
     }
 }
+
+//Status: Need to make it so usersArray gets cleared of any input on click so that it can be filled with appropriate new material, and thus be compared for those new materials.
