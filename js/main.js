@@ -43,9 +43,6 @@ function grade() {
         }
     };
 
-    for (i = 0; i < usersArray.length; i++) {
-        usersArray.shift();
-    }
 }
 
 //Status: Need to make it so usersArray gets cleared of any input on click so that it can be filled with appropriate new material, and thus be compared for those new materials.
