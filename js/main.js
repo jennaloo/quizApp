@@ -22,6 +22,8 @@ var question = document.getElementsByClassName('question');
 
 
 function grade() {
+    usersArray.pop();
+    usersArray.pop();
     //for loop to store in array
     for (i = 0; i <= 1; i++) {
         console.log(user[i].value);
