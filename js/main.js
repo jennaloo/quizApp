@@ -34,14 +34,21 @@ function grade() {
     //for loop to compare arrays
     for (i = 0; i <= answerArray.length; i++) {
         if (usersArray[i] == answerArray[i] && usersArray[i] !== "") {
-
+            //if true, green, push to "correctArray"
             question[i].style.color = "limegreen";
-
+            //getByClassName('grade')[i];
+            //change inner text of element [i] to length of "correctArray";
+            //append inner text to span 'grade'
         } else {
-
+            //else, red, push to "wrongArray"
             question[i].style.color = "red";
+            //getByClassName('grade')[i];
+            //change inner text of element [i] to length of "correctArray";
+            //append inner text to span 'grade'
         }
     };
+
+
 
 }
 
