@@ -19,11 +19,19 @@ var answerArray = [5, 0]
 var user = document.getElementsByClassName('input');
 var usersArray = [];
 var question = document.getElementsByClassName('question');
-
+var correctArray = [];
+var wrongArray = [];
 
 function grade() {
     usersArray.pop();
     usersArray.pop();
+    correctArray.pop();
+    correctArray.pop();
+    wrongArray.pop();
+    wrongArray.pop();
+    document.getElementById('p1').innerText = "";
+    document.getElementById('p2').innerText = "";
+
     //for loop to store in array
     for (i = 0; i <= 1; i++) {
         console.log(user[i].value);
@@ -31,25 +39,31 @@ function grade() {
     };
     console.log(usersArray);
 
+
     //for loop to compare arrays
     for (i = 0; i <= answerArray.length; i++) {
         if (usersArray[i] == answerArray[i] && usersArray[i] !== "") {
-            //if true, green, push to "correctArray"
             question[i].style.color = "limegreen";
-            //getByClassName('grade')[i];
-            //change inner text of element [i] to length of "correctArray";
-            //append inner text to span 'grade'
+            //if true, green, push to "correctArray"
+            var countRight = correctArray.push(usersArray[i]);
+            var p1 = document.getElementById('p1');
+            p1.innerText = countRight;
+            if (countRight == usersArray.length) {
+                var p2 = document.getElementById('p2');
+                p2.innerText = "0";
+            }
         } else {
             //else, red, push to "wrongArray"
             question[i].style.color = "red";
-            //getByClassName('grade')[i];
-            //change inner text of element [i] to length of "correctArray";
-            //append inner text to span 'grade'
+            var countWrong = wrongArray.push(usersArray[i]);
+            var p2 = document.getElementById('p2');
+            p2.innerText = countWrong;
+            if (countWrong == usersArray.length) {
+                var p1 = document.getElementById('p1');
+                p1.innerText = "0";
+            }
         }
-    };
-
-
-
+    }
 }
 
 //Status: Need to make it so usersArray gets cleared of any input on click so that it can be filled with appropriate new material, and thus be compared for those new materials.
